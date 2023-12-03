@@ -15,7 +15,13 @@
     "strictNullChecks": false,
     "noImplicitAny": false,
     "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    "forceConsistentCasingInFileNames": true, // Enabled to avoid casing issues
+    "noFallthroughCasesInSwitch": true, // Safer switch-case
+    "esModuleInterop": true, // Important for module imports
+    "moduleResolution": "node", // Ensures correct resolution of Node.js modules
+    "types": ["node"], // Ensure Node.js types are included
+    "lib": ["es2021", "dom"] // Include necessary libraries, e.g., DOM for front-end projects
+  },
+  "exclude": ["node_modules"], // Exclude unnecessary files from compilation
+  "include": ["src/**/*"] // Ensure your src folder is included
 }
