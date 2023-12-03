@@ -1,7 +1,12 @@
 # compiled output
 /dist
 /node_modules
+
+#ignore .env file
 .env
+
+#allow .env.example file 
+!.env.example
 
 # Logs
 logs
