@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+
+model customer_local {
+  id            Int      @id @default(autoincrement())
+  name          String
+  email         String
+  phone         String
+  address       String
+  nic           String
+  password      String
+  DOB           DateTime      @db.Date
+}
+
+model customer_foreign {
+  id            Int      @id @default(autoincrement())
+  name          String
+  email         String
+  phone         String
+  address       String
+  passport_no   String
+  password      String
+  depature_date DateTime    @db.Date
+  arrival_date  DateTime   @db.Date
+}
+
+model admin{
+  id            Int      @id @default(autoincrement())
+  name          String
+  email         String
+  password      String
+}
+
+model schedule_bus{
+  id            Int      @id @default(autoincrement())
+  route_name    String
+  traffic       String
+  bus_count     Int
+}
+
+model bus_route{
+  id            Int      @id @default(autoincrement())
+  bus_from      String  
+  bus_to        String
+  estimated_fee Float 
+  current_balance Float
+}
+
+model wallet {
+  id            Int      @id @default(autoincrement())
+  balance       Float
+  card_no       String
+  card_name     String
+  cvv           String
+  exp_date      DateTime   @db.Date
+}
