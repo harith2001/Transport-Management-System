@@ -1,0 +1,18 @@
+import axios from "axios";
+
+const API_BASE_URL = 'http://192.168.24.1:3000/ticketing/schedule-bus'; // backend API base URL
+
+export const getScheduleBus = async () => {
+    try{
+        const response = await axios.get(`${API_BASE_URL}/all`);
+        if(response.status === 200){
+            return {success: true, data: response.data};
+        }else{
+            return {success: false, error: 'Schedule Bus failed'};
+        }
+    }catch(error){
+        return {success: false, error: 'error'};
+    }
+}
+
+export default getScheduleBus;
